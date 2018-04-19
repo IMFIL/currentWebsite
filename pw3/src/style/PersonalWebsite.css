@@ -1,0 +1,69 @@
+@font-face {
+    font-family: moon;
+    src: url('./fonts/Moon_Light.otf');
+}
+
+@font-face {
+    font-family: sanFran;
+    src: url('./fonts/SanFranciscoDisplay-Ultralight.otf');
+}
+.personalWebsite {
+  height: 100%;
+}
+.componentRenderingArea {
+  height: calc(100% - 60px);
+}
+
+.componentRenderingAreaContainer {
+   height: calc(100% - 60px);
+}
+.welcomeScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerText {
+  position: relative;
+  color: #262626 !important;
+  font-family: moon !important;
+  font-size: 60px !important;
+}
+
+.centerTextDescription {
+  position: relative;
+  color: #262626 !important;
+  font-family: sanFran !important;
+  font-size: 20px !important;
+}
+
+.menuIcons {
+  color: #100fed !important;
+  margin-right: 0 !important;
+}
+
+.drawerStyle {
+  width: 245px;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .centerText {
+    font-size: 30px !important;
+  }
+  .drawerStyle {
+    width: 190px;
+  }
+
+  .menuIcons {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
