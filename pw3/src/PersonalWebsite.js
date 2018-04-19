@@ -8,11 +8,13 @@ import Route from 'react-router-dom/Route';
 import IconButton from 'material-ui/IconButton';
 import WelcomeScreen from './WelcomeScreen'
 import HomeIcon from '@material-ui/icons/Home';
+import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import PortraitIcon from '@material-ui/icons/Portrait';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Tooltip from 'material-ui/Tooltip';
+
 
 class PersonalWebsite extends Component {
   constructor(props) {
@@ -33,25 +35,25 @@ class PersonalWebsite extends Component {
     return (
       <div className="personalWebsite" >
         <NavBar openDrawer={this.openDrawer.bind(this)}/>
+        <Drawer
+          open={this.state.menuOpen}
+          onClose={() => this.setState({menuOpen: false})}
+          onOpen={() => this.setState({menuOpen: true})}
+        >
+          <div
+            style={{height:'100%'}}
+            tabIndex={0}
+            role="button"
+            onKeyDown={() => this.setState({menuOpen: false})}
+          >
+            <MenuDrawer closerMenu={() => this.setState({menuOpen: false})}/>
+          </div>
+        </Drawer>
         <Router>
           <div className='componentRenderingAreaContainer'>
             <div className='componentRenderingArea'>
               <Route exact path="/" render={(props) => <WelcomeScreen {...props}/>}/>
             </div>
-            <Drawer
-              open={this.state.menuOpen}
-              onClose={() => this.setState({menuOpen: false})}
-              onOpen={() => this.setState({menuOpen: true})}
-            >
-              <div
-                style={{height:'100%'}}
-                tabIndex={0}
-                role="button"
-                onKeyDown={() => this.setState({menuOpen: false})}
-              >
-                <MenuDrawer closerMenu={() => this.setState({menuOpen: false})}/>
-              </div>
-            </Drawer>
           </div>
         </Router>
       </div>
@@ -65,7 +67,7 @@ class MenuDrawer extends Component {
     this.state = {}
   }
 
-  onNavBarElementClick = () => {
+  onNavBarElementClick = (location) => {
     this.props.closerMenu()
   }
 
@@ -77,6 +79,13 @@ class MenuDrawer extends Component {
             <ListItem button style={{marginBottom:'10px'}} aria-label='Home' onClick={() => this.onNavBarElementClick('Home')}>
               <ListItemIcon>
                 <HomeIcon className='menuIcons'/>
+              </ListItemIcon>
+            </ListItem>
+          </Tooltip>
+          <Tooltip id="tooltip-Work" title="Work" placement="left-start" className='toolTipText'>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('Work')}>
+              <ListItemIcon>
+                <WorkIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
