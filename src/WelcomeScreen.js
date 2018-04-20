@@ -18,6 +18,9 @@ class WelcomeScreen extends Component {
         <Typography className='centerTextDescription'>
           Minimalist by nature
         </Typography>
+        <Typography className='centerTextDescription'>
+          -Site Under Construction-
+        </Typography>
       </div>
     );
   }
