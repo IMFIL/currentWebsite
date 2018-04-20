@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './style/PersonalWebsite.css';
-import Typography from 'material-ui/Typography';
 import Drawer from 'material-ui/SwipeableDrawer';
 import MenuIcon from '@material-ui/icons/Menu';
-import { BrowserRouter as Router} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import IconButton from 'material-ui/IconButton';
 import WelcomeScreen from './WelcomeScreen'
@@ -12,9 +11,11 @@ import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import PortraitIcon from '@material-ui/icons/Portrait';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemIcon } from 'material-ui/List';
 import Tooltip from 'material-ui/Tooltip';
+import { createBrowserHistory } from 'history';
 
+export const history = createBrowserHistory();
 
 class PersonalWebsite extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class PersonalWebsite extends Component {
       menuOpen: false
     }
   }
+
   componentDidMount =() => {
     document.title = 'Filip Slatinac'
   }
@@ -31,14 +33,15 @@ class PersonalWebsite extends Component {
       menuOpen: true
     })
   }
+
   render() {
     return (
       <div className="personalWebsite" >
         <NavBar openDrawer={this.openDrawer.bind(this)}/>
         <Drawer
-          open={this.state.menuOpen}
-          onClose={() => this.setState({menuOpen: false})}
-          onOpen={() => this.setState({menuOpen: true})}
+        open={this.state.menuOpen}
+        onClose={() => this.setState({menuOpen: false})}
+        onOpen={() => this.setState({menuOpen: true})}
         >
           <div
             style={{height:'100%'}}
@@ -49,7 +52,7 @@ class PersonalWebsite extends Component {
             <MenuDrawer closerMenu={() => this.setState({menuOpen: false})}/>
           </div>
         </Drawer>
-        <Router>
+        <Router history={history}>
           <div className='componentRenderingAreaContainer'>
             <div className='componentRenderingArea'>
               <Route exact path="/" render={(props) => <WelcomeScreen {...props}/>}/>
@@ -64,47 +67,52 @@ class PersonalWebsite extends Component {
 class MenuDrawer extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {'location': ''}
   }
 
   onNavBarElementClick = (location) => {
     this.props.closerMenu()
+    this.setState({'location':location})
+    history.replace(location);
   }
 
   render () {
+    // if (this.state.location !== ''){
+    //
+    // }
     return (
       <div className='drawerStyle'>
         <List component="nav">
           <Tooltip id="tooltip-Home" title="Home" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='Home' onClick={() => this.onNavBarElementClick('Home')}>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='Home' onClick={() => this.onNavBarElementClick('/')}>
               <ListItemIcon>
                 <HomeIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Work" title="Work" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('Work')}>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('/work')}>
               <ListItemIcon>
                 <WorkIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Projects" title="Projects" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='Projects' onClick={() => this.onNavBarElementClick('Home')}>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='Projects' onClick={() => this.onNavBarElementClick('/projects')}>
               <ListItemIcon>
                 <ColorLensIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-AboutMe" title="Story" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='AboutMe' onClick={() => this.onNavBarElementClick('Home')}>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='AboutMe' onClick={() => this.onNavBarElementClick('/story')}>
               <ListItemIcon>
                 <PortraitIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Contact" title="Contact" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('Home')}>
+            <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('/contact')}>
               <ListItemIcon>
                 <ContactMailIcon className='menuIcons'/>
               </ListItemIcon>
@@ -128,7 +136,7 @@ class NavBar extends Component {
           style={{'marginLeft': '5px', 'marginTop': '5px'}}
           onClick={() => {this.props.openDrawer()}}
         >
-          <MenuIcon style={{'fontSize': '25px'}}/>
+          <MenuIcon style={{'fontSize': '25px', 'color': '#262626'}}/>
       </IconButton>
       </div>
     )

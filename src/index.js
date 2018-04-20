@@ -16,11 +16,13 @@ const particlesCanvasStyle =
     'backgroundColor': 'white'
   }
 
-ReactDOM.render(<div style={{'height': '100%'}}>
+ReactDOM.render(
+  <div style={{'height': '100%'}}>
     <Particles
           params = {particlesConfig}
           style = {particlesCanvasStyle}
         />
-    <PersonalWebsite />
-  </div>, document.getElementById('root'));
+      <PersonalWebsite />
+  </div>
+  , document.getElementById('root'));
 registerServiceWorker();
