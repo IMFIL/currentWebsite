@@ -29,7 +29,6 @@
   z-index: 1;
   width: 50%;
   padding-bottom: 80px;
-  min-height: 230px;
 }
 
 .WorkDescription {
@@ -49,8 +48,9 @@
   flex-direction: row;
   justify-content: center;
   width: 40%;
-  position: relative;
+  position: absolute;
   z-index: 1;
+  bottom: 10%;
 }
 
 .chevronLeftContainer {

@@ -42,7 +42,6 @@ class PersonalWebsite extends Component {
         <Drawer
         open={this.state.menuOpen}
         onClose={() => this.setState({menuOpen: false})}
-        onOpen={() => this.setState({menuOpen: true})}
         >
           <div
             style={{height:'100%'}}

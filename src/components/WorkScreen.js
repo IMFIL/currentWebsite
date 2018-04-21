@@ -30,7 +30,7 @@ const workItems = [
       'Worked with 4 developers to abstract the concept of network alarms which enabled the dynamic'+
       ' creation of alarms upon software errors, designers at Nokia are still using this abstraction.'+
       ' Received the maximal standing for a coop term, Exceptional.',
-    'image': 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg',
+    'image': require('../images/Nokia_logo.svg'),
     'viewBox': '0 0 350 80',
     'heightSvg': '100',
     'widthSvg': '250',
@@ -41,10 +41,10 @@ const workItems = [
     'id': 'ciena',
     'name': 'Ciena',
     'description':
-      'Worked with 7 full time engineers on the improvement and maintainance of the UI of Blue Planet, the tool which customers such as Telus'+
+      'Worked with 7 full time engineers on the improvement and maintainance of Blue Planet\'s UI, the website which customers such as Telus'+
       ' and Vodafone use to maintain their networks. At ther end of the term, I was nomitated as the coop student of the year as well as received the'+
       ' maximal standing for a coop term.',
-    'image': 'https://upload.wikimedia.org/wikipedia/de/4/45/Ciena_logo.svg',
+    'image': require('../images/Ciena_logo.svg'),
     'viewBox': '0 0 1100 300',
     'heightSvg': '200',
     'widthSvg': '200',
@@ -56,7 +56,7 @@ const workItems = [
     'name': 'IBM',
     'description':
       'Will be participating in IBM\'s Extreme Blue program as a technical intern',
-    'image': 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+    'image': require('../images/IBM_logo.svg'),
     'viewBox': '0 0 1100 300',
     'heightSvg': '200',
     'widthSvg': '200',
