@@ -90,19 +90,29 @@
   cursor: pointer;
   padding: 0 5px 0 5px;
   color: #100fed !important;
-  width: 15px !important;
-  height: 15px !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .indicatorIconEmpty{
   cursor: pointer;
   padding: 0 5px 0 5px;
   color: #262626 !important;
-  width: 15px !important;
-  height: 15px !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 @media screen and (max-width: 601px) {
+
+  .indicatorIconFilled {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .indicatorIconEmpty{
+    width: 18px !important;
+    height: 18px !important;
+  }
 
   .workScreenContainer {
     padding-bottom: 80px;
