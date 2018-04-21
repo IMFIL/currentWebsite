@@ -48,9 +48,9 @@ const workItems = [
       ' maximal standing for a coop term.',
     'image': require('../images/Ciena_logo.svg'),
     'viewBox': '0 0 1100 300',
-    'heightSvg': '200',
+    'heightSvg': '100',
     'widthSvg': '200',
-    'height': '500',
+    'height': '400',
     'width': '800'
   },
   {
