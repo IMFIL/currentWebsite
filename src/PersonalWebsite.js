@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style/PersonalWebsite.css';
-import Drawer from 'material-ui/SwipeableDrawer';
+import Drawer from 'material-ui/Drawer';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Router} from 'react-router-dom';
 import Route from 'react-router-dom/Route';

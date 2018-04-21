@@ -16,10 +16,12 @@ const workItems = [
     'name': 'University Of Ottawa',
     'description':
       'Worked in a team of 5 to design, create and maintain a web application which enabled students to connect with academic adivsors.',
-    'image': 'https://upload.wikimedia.org/wikipedia/en/7/7f/University_of_Ottawa_Logo.svg',
+    'image': require('../images/University_of_Ottawa_Logo.svg'),
     'viewBox': '0 0 90 150',
-    'height': '120',
-    'width': '220'
+    'heightSvg': '120',
+    'widthSvg': '220',
+    'height': '132',
+    'width': '200'
   },
   {
     'id': 'nokia',
@@ -30,7 +32,9 @@ const workItems = [
       ' Received the maximal standing for a coop term, Exceptional.',
     'image': 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg',
     'viewBox': '0 0 350 80',
-    'height': '100',
+    'heightSvg': '100',
+    'widthSvg': '250',
+    'height': '140',
     'width': '250'
   },
   {
@@ -42,8 +46,10 @@ const workItems = [
       ' maximal standing for a coop term.',
     'image': 'https://upload.wikimedia.org/wikipedia/de/4/45/Ciena_logo.svg',
     'viewBox': '0 0 1100 300',
-    'height': '100',
-    'width': '200'
+    'heightSvg': '200',
+    'widthSvg': '200',
+    'height': '500',
+    'width': '800'
   },
   {
     'id': 'ibm',
@@ -52,8 +58,10 @@ const workItems = [
       'Will be participating in IBM\'s Extreme Blue program as a technical intern',
     'image': 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
     'viewBox': '0 0 1100 300',
-    'height': '100',
-    'width': '160'
+    'heightSvg': '200',
+    'widthSvg': '200',
+    'height': '300',
+    'width': '650'
   }
 ]
 
@@ -91,6 +99,12 @@ class WorkScreen extends Component {
   render() {
 
     return (
+      <Swipe
+      allowMouseEvents={true}
+      style={{'height':'100%'}}
+      onSwipeRight = {() => {this.changeCurrentWork(-1)}}
+      onSwipeLeft = {() => {this.changeCurrentWork(1)}}
+      >
         <div className='workScreenContainer'>
           <div className='workScreenContentContainer'>
 
@@ -99,10 +113,14 @@ class WorkScreen extends Component {
               <svg className='svgImage'
               id={workItems[this.state.currentWorkObject]['id']}
               viewBox={workItems[this.state.currentWorkObject]['viewBox']}
-              width={workItems[this.state.currentWorkObject]['width']}
-              height={workItems[this.state.currentWorkObject]['height']}>
+              width={workItems[this.state.currentWorkObject]['widthSvg']}
+              height={workItems[this.state.currentWorkObject]['heightSvg']}>
 
-                <image href={workItems[this.state.currentWorkObject]['image']}/>
+                <image
+                width={workItems[this.state.currentWorkObject]['width']}
+                height={workItems[this.state.currentWorkObject]['height']}
+                xlinkHref={workItems[this.state.currentWorkObject]['image']}/>
+
               </svg>
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -141,6 +159,7 @@ class WorkScreen extends Component {
             </div>
           </MediaQuery>
         </div>
+      </Swipe>
     )
   }
 }
