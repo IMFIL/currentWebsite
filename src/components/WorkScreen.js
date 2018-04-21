@@ -91,12 +91,6 @@ class WorkScreen extends Component {
   render() {
 
     return (
-      <Swipe
-      allowMouseEvents={true}
-      style={{'height':'100%'}}
-      onSwipeLeft = {() => {this.changeCurrentWork(-1)}}
-      onSwipeRight = {() => {this.changeCurrentWork(1)}}
-      >
         <div className='workScreenContainer'>
           <div className='workScreenContentContainer'>
 
@@ -147,7 +141,6 @@ class WorkScreen extends Component {
             </div>
           </MediaQuery>
         </div>
-      </Swipe>
     )
   }
 }
