@@ -8,7 +8,7 @@ import LensIcon from '@material-ui/icons/Lens';
 import PanoramaFishEyeIcon from '@material-ui/icons/PanoramaFishEye';
 import Tooltip from 'material-ui/Tooltip';
 import MediaQuery from 'react-responsive';
-import Swipe from 'react-swipe-component';
+import Swipe from 'react-easy-swipe';
 
 const workItems = [
   {
@@ -18,8 +18,8 @@ const workItems = [
       'Worked in a team of 5 to design, create and maintain a web application which enabled students to connect with academic adivsors.',
     'image': 'https://upload.wikimedia.org/wikipedia/en/7/7f/University_of_Ottawa_Logo.svg',
     'viewBox': '0 0 90 150',
-    'height': '150',
-    'width': '250'
+    'height': '120',
+    'width': '220'
   },
   {
     'id': 'nokia',
@@ -52,8 +52,8 @@ const workItems = [
       'Will be participating in IBM\'s Extreme Blue program as a technical intern',
     'image': 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
     'viewBox': '0 0 1100 300',
-    'height': '150',
-    'width': '250'
+    'height': '100',
+    'width': '160'
   }
 ]
 
@@ -92,10 +92,10 @@ class WorkScreen extends Component {
 
     return (
       <Swipe
-      nodeName="div"
+      allowMouseEvents={true}
       style={{'height':'100%'}}
-      onSwipedLeft = {() => {this.changeCurrentWork(-1)}}
-      onSwipedRight = {() => {this.changeCurrentWork(1)}}
+      onSwipeLeft = {() => {this.changeCurrentWork(-1)}}
+      onSwipeRight = {() => {this.changeCurrentWork(1)}}
       >
         <div className='workScreenContainer'>
           <div className='workScreenContentContainer'>

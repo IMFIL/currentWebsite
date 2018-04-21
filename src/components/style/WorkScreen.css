@@ -87,11 +87,27 @@
     font-size: 15px !important;
   }
 
+  .workScreenContentContainer {
+    min-height: 210px;
+    max-height: 210px;
+  }
+
   #uofo {
-    width: 150px !important;
+    width: 140px;
+    height: 90px;
   }
 
   #ibm {
-    width: 150px !important;
+    width: 150px;
+  }
+
+  #ciena {
+    width: 160px;
+    height: 90px;
+  }
+
+  #nokia {
+    width: 150px;
+    height: 90px;
   }
 }
