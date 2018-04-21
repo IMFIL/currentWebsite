@@ -57,7 +57,7 @@ class PersonalWebsite extends Component {
           <div className='componentRenderingAreaContainer'>
             <div className='componentRenderingArea'>
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
-              <Route exact path='/workWOW' render={(props) => <WorkScreen {...props}/>}/>
+              <Route exact path='/work' render={(props) => <WorkScreen {...props}/>}/>
             </div>
           </div>
         </Router>

@@ -2,24 +2,27 @@ import React, { Component } from 'react';
 import './style/WorkScreen.css';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import LensIcon from '@material-ui/icons/Lens';
 import PanoramaFishEyeIcon from '@material-ui/icons/PanoramaFishEye';
 import Tooltip from 'material-ui/Tooltip';
+import MediaQuery from 'react-responsive';
+import Swipe from 'react-swipe-component';
 
 const workItems = [
   {
+    'id': 'uofo',
     'name': 'University Of Ottawa',
     'description':
       'Worked in a team of 5 to design, create and maintain a web application which enabled students to connect with academic adivsors.',
     'image': 'https://upload.wikimedia.org/wikipedia/en/7/7f/University_of_Ottawa_Logo.svg',
-    'viewBox': '0 0 100 150',
-    'height': '100',
-    'width': '350'
+    'viewBox': '0 0 90 150',
+    'height': '150',
+    'width': '250'
   },
   {
+    'id': 'nokia',
     'name': 'Nokia',
     'description':
       'Worked with 4 developers to abstract the concept of network alarms which enabled the dynamic'+
@@ -31,6 +34,7 @@ const workItems = [
     'width': '250'
   },
   {
+    'id': 'ciena',
     'name': 'Ciena',
     'description':
       'Worked with 7 full time engineers on the improvement and maintainance of the UI of Blue Planet, the tool which customers such as Telus'+
@@ -39,9 +43,10 @@ const workItems = [
     'image': 'https://upload.wikimedia.org/wikipedia/de/4/45/Ciena_logo.svg',
     'viewBox': '0 0 1100 300',
     'height': '100',
-    'width': '250'
+    'width': '200'
   },
   {
+    'id': 'ibm',
     'name': 'IBM',
     'description':
       'Will be participating in IBM\'s Extreme Blue program as a technical intern',
@@ -86,52 +91,63 @@ class WorkScreen extends Component {
   render() {
 
     return (
-      <div className='workScreenContainer'>
-        <div className='workScreenContentContainer'>
-          <Grid container className='imageGridItem' spacing={24}>
-            <Grid item xs={12} sm={6}>
-            <svg className='svgImage'
-            viewBox={workItems[this.state.currentWorkObject]['viewBox']}
-            width={workItems[this.state.currentWorkObject]['width']}
-            height={workItems[this.state.currentWorkObject]['height']}>
+      <Swipe
+      nodeName="div"
+      style={{'height':'100%'}}
+      onSwipedLeft = {() => {this.changeCurrentWork(-1)}}
+      onSwipedRight = {() => {this.changeCurrentWork(1)}}
+      >
+        <div className='workScreenContainer'>
+          <div className='workScreenContentContainer'>
 
-              <image href={workItems[this.state.currentWorkObject]['image']}/>
-            </svg>
+            <Grid container className='imageGridItem' spacing={24}>
+              <Grid item xs={12} sm={6}>
+              <svg className='svgImage'
+              id={workItems[this.state.currentWorkObject]['id']}
+              viewBox={workItems[this.state.currentWorkObject]['viewBox']}
+              width={workItems[this.state.currentWorkObject]['width']}
+              height={workItems[this.state.currentWorkObject]['height']}>
+
+                <image href={workItems[this.state.currentWorkObject]['image']}/>
+              </svg>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Typography className='WorkDescription'>
+                  {workItems[this.state.currentWorkObject]['description']}
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography className='WorkDescription'>
-                {workItems[this.state.currentWorkObject]['description']}
-              </Typography>
-            </Grid>
-          </Grid>
-        </div>
-        <div className='workNavigationController'>
-          <div className='chevronLeftContainer'>
-            <Tooltip id="tooltip-chevronLeft"
-            title={this.state.currentWorkObject - 1 >= 0 ? workItems[this.state.currentWorkObject - 1]['name'] : workItems[workItems.length - 1]['name'] }
-            placement="left-start" className='toolTipText'>
-              <ChevronLeftIcon aria-label='chevronLeft' className='chevron' onClick={() => {this.changeCurrentWork(-1)}}/>
-            </Tooltip>
           </div>
+          <MediaQuery minDeviceWidth={801}>
+            <div className='workNavigationController'>
+              <div className='chevronLeftContainer'>
+                <Tooltip id="tooltip-chevronLeft"
+                title={this.state.currentWorkObject - 1 >= 0 ? workItems[this.state.currentWorkObject - 1]['name'] : workItems[workItems.length - 1]['name'] }
+                placement="left-start" className='toolTipText'>
+                  <ChevronLeftIcon aria-label='chevronLeft' className='chevron' onClick={() => {this.changeCurrentWork(-1)}}/>
+                </Tooltip>
+              </div>
 
-          <div className='workIndicatorsContainer'>
-            {workItems.map((i, index) => {
-              if (index === this.state.currentWorkObject) {
-                return(<LensIcon className='indicatorIconFilled'/>)
-              }
-              return(<PanoramaFishEyeIcon onClick={() => {this.setState({'currentWorkObject': index})}} className='indicatorIconEmpty'/>)
-            })}
-          </div>
+              <div className='workIndicatorsContainer'>
+                {workItems.map((i, index) => {
+                  if (index === this.state.currentWorkObject) {
+                    return(<LensIcon className='indicatorIconFilled' key={index}/>)
+                  }
+                  return(<PanoramaFishEyeIcon key={index} onClick={() => {this.setState({'currentWorkObject': index})}} className='indicatorIconEmpty'/>)
+                })}
+              </div>
 
-          <div className='chevronRightContainer'>
-            <Tooltip id="tooltip-chevronRight"
-            title={this.state.currentWorkObject + 1 < workItems.length ? workItems[this.state.currentWorkObject + 1]['name'] : workItems[0]['name'] }
-            placement="right-start" className='toolTipText'>
-              <ChevronRightIcon aria-label='chevronRight' className='chevron' onClick = {() => {this.changeCurrentWork(1)}}/>
-            </Tooltip>
-          </div>
+              <div className='chevronRightContainer'>
+                <Tooltip id="tooltip-chevronRight"
+                title={this.state.currentWorkObject + 1 < workItems.length ? workItems[this.state.currentWorkObject + 1]['name'] : workItems[0]['name'] }
+                placement="right-start" className='toolTipText'>
+                  <ChevronRightIcon aria-label='chevronRight' className='chevron' onClick = {() => {this.changeCurrentWork(1)}}/>
+                </Tooltip>
+              </div>
+            </div>
+          </MediaQuery>
         </div>
-      </div>
+      </Swipe>
     )
   }
 }

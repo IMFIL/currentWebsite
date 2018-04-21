@@ -21,8 +21,7 @@
   z-index: 1;
   width: 50%;
   padding-bottom: 80px;
-  min-height: 200px;
-  max-height: 200px;
+  min-height: 230px;
 }
 
 .WorkDescription {
@@ -88,7 +87,11 @@
     font-size: 15px !important;
   }
 
-  .svgImage {
-    width: 200px;
+  #uofo {
+    width: 150px !important;
+  }
+
+  #ibm {
+    width: 150px !important;
   }
 }
