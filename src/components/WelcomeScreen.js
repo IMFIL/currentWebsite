@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style/PersonalWebsite.css';
+import '../style/PersonalWebsite.css';
 import Typography from 'material-ui/Typography';
 
 class WelcomeScreen extends Component {

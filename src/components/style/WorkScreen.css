@@ -1,0 +1,94 @@
+@font-face {
+    font-family: moon;
+    src: url('../../style/fonts/Moon_Light.otf');
+}
+
+@font-face {
+    font-family: sanFran;
+    src: url('../../style/fonts/SanFranciscoDisplay-Ultralight.otf');
+}
+
+.workScreenContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.workScreenContentContainer {
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  padding-bottom: 80px;
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.WorkDescription {
+  font-family: sanFran !important;
+  color: #262626 !important;
+  font-size: 19px !important;
+}
+
+.imageGridItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workNavigationController {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 40%;
+  position: relative;
+  z-index: 1;
+}
+
+.chevronLeftContainer {
+  padding: 0 50px 0 0;
+}
+
+.chevronRightContainer {
+  padding: 0 0 0 50px;
+}
+
+.chevron {
+  cursor: pointer;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.workIndicatorsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.indicatorIconFilled {
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  color: #100fed !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.indicatorIconEmpty{
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  color: #262626 !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+@media screen and (max-width: 980px) {
+  .WorkDescription {
+    font-size: 15px !important;
+  }
+
+  .svgImage {
+    width: 200px;
+  }
+}

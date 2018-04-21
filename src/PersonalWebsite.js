@@ -5,7 +5,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {Router} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import IconButton from 'material-ui/IconButton';
-import WelcomeScreen from './WelcomeScreen'
+import WelcomeScreen from './components/WelcomeScreen'
+import WorkScreen from './components/WorkScreen'
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
@@ -55,7 +56,8 @@ class PersonalWebsite extends Component {
         <Router history={history}>
           <div className='componentRenderingAreaContainer'>
             <div className='componentRenderingArea'>
-              <Route exact path="/" render={(props) => <WelcomeScreen {...props}/>}/>
+              <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
+              <Route exact path='/work' render={(props) => <WorkScreen {...props}/>}/>
             </div>
           </div>
         </Router>
