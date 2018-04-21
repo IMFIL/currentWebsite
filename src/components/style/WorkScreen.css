@@ -8,6 +8,14 @@
     src: url('../../style/fonts/SanFranciscoDisplay-Ultralight.otf');
 }
 
+.workArea {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .workScreenContainer {
   height: 100%;
   display: flex;
@@ -53,6 +61,18 @@
   padding: 0 0 0 50px;
 }
 
+.chevronLeftContainerMobile {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 0 50px ;
+}
+
+.chevronRightContainerMobile {
+  position: relative;
+  z-index: 1;
+  padding: 0 50px 0 0;
+}
+
 .chevron {
   cursor: pointer;
   width: 40px !important;
@@ -83,18 +103,34 @@
 }
 
 @media screen and (max-width: 980px) {
+
+  .indicatorIconFilled {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .indicatorIconEmpty {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .chevron {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
   .WorkDescription {
     font-size: 15px !important;
   }
 
   .workScreenContentContainer {
     min-height: 210px;
-    min-height: 292px;
+    padding-bottom: 40px;
   }
 
   #uofo {
-    width: 150px;
-    height: 90px;
+    width: 110px;
+    height: 75px;
   }
 
   #ibm {

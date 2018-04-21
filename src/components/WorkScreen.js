@@ -18,10 +18,10 @@ const workItems = [
       'Worked in a team of 5 to design, create and maintain a web application which enabled students to connect with academic adivsors.',
     'image': require('../images/University_of_Ottawa_Logo.svg'),
     'viewBox': '0 0 90 150',
-    'heightSvg': '120',
-    'widthSvg': '220',
+    'heightSvg': '110',
+    'widthSvg': '190',
     'height': '132',
-    'width': '200'
+    'width': '150'
   },
   {
     'id': 'nokia',
@@ -99,13 +99,18 @@ class WorkScreen extends Component {
   render() {
 
     return (
-      <Swipe
-      allowMouseEvents={true}
-      style={{'height':'100%'}}
-      onSwipeRight = {() => {this.changeCurrentWork(-1)}}
-      onSwipeLeft = {() => {this.changeCurrentWork(1)}}
-      >
+      <div className='workArea'>
+        <MediaQuery maxDeviceWidth={801}>
+          <div className='chevronLeftContainerMobile'>
+            <Tooltip id="tooltip-chevronLeft"
+            title={this.state.currentWorkObject - 1 >= 0 ? workItems[this.state.currentWorkObject - 1]['name'] : workItems[workItems.length - 1]['name'] }
+            placement="left-start" className='toolTipText'>
+              <ChevronLeftIcon aria-label='chevronLeft' className='' onClick={() => {this.changeCurrentWork(-1)}}/>
+            </Tooltip>
+          </div>
+        </MediaQuery>
         <div className='workScreenContainer'>
+
           <div className='workScreenContentContainer'>
 
             <Grid container className='imageGridItem' spacing={24}>
@@ -130,6 +135,7 @@ class WorkScreen extends Component {
               </Grid>
             </Grid>
           </div>
+
           <MediaQuery minDeviceWidth={801}>
             <div className='workNavigationController'>
               <div className='chevronLeftContainer'>
@@ -159,7 +165,16 @@ class WorkScreen extends Component {
             </div>
           </MediaQuery>
         </div>
-      </Swipe>
+          <MediaQuery maxDeviceWidth={801}>
+            <div className='chevronRightContainerMobile'>
+              <Tooltip id="tooltip-chevronRight"
+              title={this.state.currentWorkObject + 1 < workItems.length ? workItems[this.state.currentWorkObject + 1]['name'] : workItems[0]['name'] }
+              placement="right-start" className='toolTipText'>
+                <ChevronRightIcon aria-label='chevronRight' className='' onClick = {() => {this.changeCurrentWork(1)}}/>
+              </Tooltip>
+            </div>
+          </MediaQuery>
+      </div>
     )
   }
 }
