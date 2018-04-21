@@ -102,19 +102,19 @@
   height: 15px !important;
 }
 
-@media screen and (max-width: 601px) {
+@media screen and (max-width: 801px) {
   .WorkDescription {
     font-size: 17px !important;
   }
 
   .workScreenContentContainer {
-    min-width: 210px;
+    min-width: 220px;
     padding-bottom: 80px;
   }
 
   .chevron {
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
 
   #uofo {
@@ -138,7 +138,7 @@
   }
 }
 
-@media screen and (max-width: 980px) and (min-width: 601px) {
+@media screen and (max-width: 980px) and (min-width: 801px) {
 
   .indicatorIconFilled {
     width: 12px !important;
@@ -152,11 +152,6 @@
 
   .WorkDescription {
     font-size: 15px !important;
-  }
-
-  .workScreenContentContainer {
-    min-height: 210px;
-    padding-bottom: 40px;
   }
 
   #uofo {
