@@ -10,6 +10,8 @@ import Tooltip from 'material-ui/Tooltip';
 import MediaQuery from 'react-responsive';
 import Swipe from 'react-easy-swipe';
 
+//Add skill bar belowimage and description
+
 const workItems = [
   {
     'id': 'uofo',
@@ -100,33 +102,24 @@ class WorkScreen extends Component {
 
     return (
       <div className='workArea'>
-        <MediaQuery maxDeviceWidth={801}>
-          <div className='chevronLeftContainerMobile'>
-            <Tooltip id="tooltip-chevronLeft"
-            title={this.state.currentWorkObject - 1 >= 0 ? workItems[this.state.currentWorkObject - 1]['name'] : workItems[workItems.length - 1]['name'] }
-            placement="left-start" className='toolTipText'>
-              <ChevronLeftIcon aria-label='chevronLeft' className='chevron' onClick={() => {this.changeCurrentWork(-1)}}/>
-            </Tooltip>
-          </div>
-        </MediaQuery>
         <div className='workScreenContainer'>
 
           <div className='workScreenContentContainer'>
 
             <Grid container className='imageGridItem' spacing={24}>
-              <Grid item xs={12} sm={6}>
-              <svg className='svgImage'
-              id={workItems[this.state.currentWorkObject]['id']}
-              viewBox={workItems[this.state.currentWorkObject]['viewBox']}
-              width={workItems[this.state.currentWorkObject]['widthSvg']}
-              height={workItems[this.state.currentWorkObject]['heightSvg']}>
+              <Grid item xs={12} sm={6} style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}>
+                <svg className='svgImage'
+                id={workItems[this.state.currentWorkObject]['id']}
+                viewBox={workItems[this.state.currentWorkObject]['viewBox']}
+                width={workItems[this.state.currentWorkObject]['widthSvg']}
+                height={workItems[this.state.currentWorkObject]['heightSvg']}>
 
-                <image
-                width={workItems[this.state.currentWorkObject]['width']}
-                height={workItems[this.state.currentWorkObject]['height']}
-                xlinkHref={workItems[this.state.currentWorkObject]['image']}/>
+                  <image
+                  width={workItems[this.state.currentWorkObject]['width']}
+                  height={workItems[this.state.currentWorkObject]['height']}
+                  xlinkHref={workItems[this.state.currentWorkObject]['image']}/>
 
-              </svg>
+                </svg>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography className='WorkDescription'>
@@ -135,8 +128,6 @@ class WorkScreen extends Component {
               </Grid>
             </Grid>
           </div>
-
-          <MediaQuery minDeviceWidth={801}>
             <div className='workNavigationController'>
               <div className='chevronLeftContainer'>
                 <Tooltip id="tooltip-chevronLeft"
@@ -163,17 +154,7 @@ class WorkScreen extends Component {
                 </Tooltip>
               </div>
             </div>
-          </MediaQuery>
         </div>
-          <MediaQuery maxDeviceWidth={801}>
-            <div className='chevronRightContainerMobile'>
-              <Tooltip id="tooltip-chevronRight"
-              title={this.state.currentWorkObject + 1 < workItems.length ? workItems[this.state.currentWorkObject + 1]['name'] : workItems[0]['name'] }
-              placement="right-start" className='toolTipText'>
-                <ChevronRightIcon aria-label='chevronRight' className='chevron' onClick = {() => {this.changeCurrentWork(1)}}/>
-              </Tooltip>
-            </div>
-          </MediaQuery>
       </div>
     )
   }
