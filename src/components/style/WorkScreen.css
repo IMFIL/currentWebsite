@@ -112,6 +112,11 @@
     padding-bottom: 80px;
   }
 
+  .chevron {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
   #uofo {
     width: 110px;
     height: 75px;
@@ -143,11 +148,6 @@
   .indicatorIconEmpty {
     width: 12px !important;
     height: 12px !important;
-  }
-
-  .chevron {
-    width: 30px !important;
-    height: 30px !important;
   }
 
   .WorkDescription {
