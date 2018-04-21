@@ -105,7 +105,7 @@ class WorkScreen extends Component {
             <Tooltip id="tooltip-chevronLeft"
             title={this.state.currentWorkObject - 1 >= 0 ? workItems[this.state.currentWorkObject - 1]['name'] : workItems[workItems.length - 1]['name'] }
             placement="left-start" className='toolTipText'>
-              <ChevronLeftIcon aria-label='chevronLeft' className='' onClick={() => {this.changeCurrentWork(-1)}}/>
+              <ChevronLeftIcon aria-label='chevronLeft' className='chevron' onClick={() => {this.changeCurrentWork(-1)}}/>
             </Tooltip>
           </div>
         </MediaQuery>
@@ -170,7 +170,7 @@ class WorkScreen extends Component {
               <Tooltip id="tooltip-chevronRight"
               title={this.state.currentWorkObject + 1 < workItems.length ? workItems[this.state.currentWorkObject + 1]['name'] : workItems[0]['name'] }
               placement="right-start" className='toolTipText'>
-                <ChevronRightIcon aria-label='chevronRight' className='' onClick = {() => {this.changeCurrentWork(1)}}/>
+                <ChevronRightIcon aria-label='chevronRight' className='chevron' onClick = {() => {this.changeCurrentWork(1)}}/>
               </Tooltip>
             </div>
           </MediaQuery>
