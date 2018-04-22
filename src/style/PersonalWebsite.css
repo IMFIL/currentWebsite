@@ -1,6 +1,30 @@
-@font-face {
-    font-family: moon;
-    src: url('./fonts/Moon_Light.otf');
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 @font-face {
@@ -9,32 +33,45 @@
 }
 .personalWebsite {
   height: 100%;
+  display: flex;
+  overflow: auto;
 }
-.componentRenderingArea {
+
+.particlesCanvasStyle {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 405px !important;
   height: 100%;
 }
 
-.componentRenderingAreaContainer {
-   height: calc(100% - 60px);
+.componentRenderingArea {
+  height: 100%
 }
+
+.componentRenderingAreaContainer {
+   height: 100%;
+   width: calc(100% - 405px)
+}
+
 .welcomeScreen {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   justify-content: center;
-  align-items: center;
+  padding-left: 100px;
 }
 
 .centerText {
-  position: relative;
   color: #262626 !important;
   font-family: moon !important;
-  font-size: 60px !important;
+  font-size: 35px !important;
 }
 
 .centerTextDescription {
-  position: relative;
+  max-width: 500px;
+  padding: 20px 0 20px 0;
   color: #262626 !important;
   font-family: sanFran !important;
   font-size: 20px !important;
@@ -46,6 +83,22 @@
 }
 
 .drawerStyle {
+  background-color: #A8A8A8;
+  width: 405px;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-animation: fadein 2s;
+   -moz-animation: fadein 2s;
+    -ms-animation: fadein 2s;
+     -o-animation: fadein 2s;
+        animation: fadein 2s;
+}
+
+.drawerStyleMobile {
   width: 245px;
   height:100%;
   display: flex;
@@ -54,16 +107,77 @@
   align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+.githubIcon {
+  cursor: pointer;
+  color: #DDDDDD;
+}
+
+.githubIcon:hover {
+  color: #171515;
+}
+
+.linkedInIcon {
+  color: #DDDDDD;
+  cursor: pointer;
+}
+
+.linkedInIcon:hover {
+  color: #127BB4;
+}
+
+@media screen and (max-width: 1001px) and (min-width: 601px) {
+
+  .componentRenderingAreaContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 601px) and (min-width: 450px) {
+
+  .welcomeScreen {
+    padding-left: 20px;
+    height: calc(100% + 60px)
+  }
+
+  .componentRenderingAreaContainer {
+    width: 100%;
+  }
+
   .centerText {
     font-size: 30px !important;
   }
-  .drawerStyle {
-    width: 190px;
+
+  .centerTextDescription {
+    max-width: 300px;
+    font-size: 19px !important;
   }
 
-  .menuIcons {
-    width: 20px !important;
-    height: 20px !important;
+  .interestsChips {
+    font-size: 12px !important
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .welcomeScreen {
+    padding-left: 10px;
+    height: calc(100% + 60px)
+  }
+
+  .componentRenderingAreaContainer {
+    width: 100%;
+  }
+
+  .centerText {
+    font-size: 20px !important;
+  }
+
+  .centerTextDescription {
+    max-width: 200px;
+    font-size: 15px !important;
+  }
+
+  .interestsChips {
+    font-size: 9px !important
   }
 }

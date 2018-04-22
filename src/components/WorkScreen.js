@@ -7,17 +7,18 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import LensIcon from '@material-ui/icons/Lens';
 import PanoramaFishEyeIcon from '@material-ui/icons/PanoramaFishEye';
 import Tooltip from 'material-ui/Tooltip';
-import MediaQuery from 'react-responsive';
-import Swipe from 'react-easy-swipe';
 
-//Add skill bar belowimage and description
+//Add skill bar below image and description. Desktop -> dv that holds the skills. Mobile -> small containers holding work icon and skills with button to expand, when clicked
+//Description slides from below
 
 const workItems = [
   {
     'id': 'uofo',
-    'name': 'University Of Ottawa',
+    'name': 'University of Ottawa',
     'description':
-      'Worked in a team of 5 to design, create and maintain a web application which enabled students to connect with academic adivsors.',
+      'Worked in a team of 5 to maintain, improve and test a web application which enabled students to connect with academic adivsors.' +
+      ' I also Implemented a statistical end point which let users see how much a certain service was being utilized by students.' +
+      ' ',
     'image': require('../images/University_of_Ottawa_Logo.svg'),
     'viewBox': '0 0 90 150',
     'heightSvg': '110',
@@ -29,9 +30,9 @@ const workItems = [
     'id': 'nokia',
     'name': 'Nokia',
     'description':
-      'Worked with 4 developers to abstract the concept of network alarms which enabled the dynamic'+
-      ' creation of alarms upon software errors, designers at Nokia are still using this abstraction.'+
-      ' Received the maximal standing for a coop term, Exceptional.',
+      'Worked in a team of 4 developers on the abstraction of networking alarms. This enabled devlelopers to dynamically create alarms based on software errors.' +
+      ' Prior to this change, developers were manually creating an alarm for every possible software error.' +
+      ' At the end of the term I reveived the maximal standing for a coop term.',
     'image': require('../images/Nokia_logo.svg'),
     'viewBox': '0 0 350 80',
     'heightSvg': '100',
@@ -43,9 +44,10 @@ const workItems = [
     'id': 'ciena',
     'name': 'Ciena',
     'description':
-      'Worked with 7 full time engineers on the improvement and maintainance of Blue Planet\'s UI, the website which customers such as Telus'+
-      ' and Vodafone use to maintain their networks. At ther end of the term, I was nomitated as the coop student of the year as well as received the'+
-      ' maximal standing for a coop term.',
+      'Worked with a team of 7 engineers on the improvement and maintainance of Blue Planet\'s UI, the website which customers such as Telus'+
+      ' and Vodafone use to maintain their networks. In addition to maintance, I was tasked to revamp 2 graphical component which significantly aided the end users.' +
+      ' At ther end of the term, I was nomitated as the coop'+
+      ' student of the year as well as received the maximal standing for a coop term.',
     'image': require('../images/Ciena_logo.svg'),
     'viewBox': '0 0 1100 300',
     'heightSvg': '100',
@@ -57,7 +59,7 @@ const workItems = [
     'id': 'ibm',
     'name': 'IBM',
     'description':
-      'Will be participating in IBM\'s Extreme Blue program as a technical intern',
+      'Will be participating in IBM\'s Extreme Blue program as a technical intern. More information to come.',
     'image': require('../images/IBM_logo.svg'),
     'viewBox': '0 0 1100 300',
     'heightSvg': '200',
@@ -124,6 +126,16 @@ class WorkScreen extends Component {
               <Grid item xs={12} sm={6}>
                 <Typography className='WorkDescription'>
                   {workItems[this.state.currentWorkObject]['description']}
+                </Typography>
+              </Grid>
+              <Grid item xs={3} sm={12}>
+                <Typography className='WorkDescription'>
+                  hello
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <Typography className='WorkDescription'>
+                  hello
                 </Typography>
               </Grid>
             </Grid>

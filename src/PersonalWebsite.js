@@ -11,7 +11,6 @@ import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
-import PortraitIcon from '@material-ui/icons/Portrait';
 import List, { ListItem, ListItemIcon } from 'material-ui/List';
 import Tooltip from 'material-ui/Tooltip';
 import { createBrowserHistory } from 'history';
@@ -22,13 +21,40 @@ class PersonalWebsite extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuOpen: false
+      'menuOpen': false,
+      'width': window.innerWidth,
+      'height':0
     }
   }
 
-  componentDidMount =() => {
-    document.title = 'Filip Slatinac'
+  updateDimensions = () => {
+    this.setState({'width': window.innerWidth, 'height': window.innerHeight})
   }
+
+  componentWillMount() {
+    this.updateDimensions
+}
+  componentDidMount() {
+    document.title = 'Filip Slatinac'
+      window.addEventListener("resize", this.updateDimensions);
+  }
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.menuOpen == !this.state.menuOpen) {
+      return true
+    }
+
+    else if(nextState.width <= 1000 && this.state.width > 1000 || nextState.width > 1000 && this.state.width <= 1000) {
+      this.props.toggleParticles(nextState.width > 1000)
+      return true
+    }
+
+    return false
+  }
+
   openDrawer = () => {
     this.setState({
       menuOpen: true
@@ -38,28 +64,39 @@ class PersonalWebsite extends Component {
   render() {
     return (
       <div className="personalWebsite" >
-        <NavBar openDrawer={this.openDrawer.bind(this)}/>
-        <Drawer
-        open={this.state.menuOpen}
-        onClose={() => this.setState({menuOpen: false})}
-        >
-          <div
-            style={{height:'100%'}}
-            tabIndex={0}
-            role="button"
-            onKeyDown={() => this.setState({menuOpen: false})}
+
+        {this.state.width > 1000 &&
+            <MenuDrawer drawerStyle='drawerStyle'/>
+        }
+
+        {this.state.width <= 1000 &&
+            <NavBar openDrawer={this.openDrawer.bind(this)}/>
+        }
+
+        {this.state.width <= 1000 &&
+          <Drawer
+          open={this.state.menuOpen}
+          onClose={() => this.setState({menuOpen: false})}
           >
-            <MenuDrawer closerMenu={() => this.setState({menuOpen: false})}/>
-          </div>
-        </Drawer>
-        <Router history={history}>
-          <div className='componentRenderingAreaContainer'>
+            <div
+              style={{height:'100%'}}
+              tabIndex={0}
+              role="button"
+              onKeyDown={() => this.setState({menuOpen: false})}
+            >
+              <MenuDrawer drawerStyle='drawerStyleMobile' closerMenu={() => this.setState({menuOpen: false})}/>
+            </div>
+          </Drawer>
+        }
+
+        <div className='componentRenderingAreaContainer'>
+          <Router history={history}>
             <div className='componentRenderingArea'>
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
               <Route exact path='/work' render={(props) => <WorkScreen {...props}/>}/>
             </div>
-          </div>
-        </Router>
+          </Router>
+        </div>
       </div>
     );
   }
@@ -78,11 +115,8 @@ class MenuDrawer extends Component {
   }
 
   render () {
-    // if (this.state.location !== ''){
-    //
-    // }
     return (
-      <div className='drawerStyle'>
+      <div className={this.props.drawerStyle}>
         <List component="nav">
           <Tooltip id="tooltip-Home" title="Home" placement="left-start" className='toolTipText'>
             <ListItem button style={{marginBottom:'10px'}} aria-label='Home' onClick={() => this.onNavBarElementClick('/')}>
@@ -102,13 +136,6 @@ class MenuDrawer extends Component {
             <ListItem button style={{marginBottom:'10px'}} aria-label='Projects' onClick={() => this.onNavBarElementClick('/projects')}>
               <ListItemIcon>
                 <ColorLensIcon className='menuIcons'/>
-              </ListItemIcon>
-            </ListItem>
-          </Tooltip>
-          <Tooltip id="tooltip-AboutMe" title="Story" placement="left-start" className='toolTipText'>
-            <ListItem button style={{marginBottom:'10px'}} aria-label='AboutMe' onClick={() => this.onNavBarElementClick('/story')}>
-              <ListItemIcon>
-                <PortraitIcon className='menuIcons'/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
@@ -132,7 +159,7 @@ class NavBar extends Component {
   }
   render () {
     return (
-      <div style={{'width': '100%', 'height': '60px', 'position': 'relative', 'zIndex': '1'}}>
+      <div style={{'position': 'relative', 'zIndex': '1'}}>
       <IconButton
           style={{'marginLeft': '5px', 'marginTop': '5px'}}
           onClick={() => {this.props.openDrawer()}}

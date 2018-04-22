@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './style/index.css';
 import PersonalWebsite from './PersonalWebsite';
@@ -6,23 +6,37 @@ import registerServiceWorker from './registerServiceWorker';
 import Particles from 'react-particles-js';
 import particlesConfig from './particles-config/particlesjs-config.json';
 
-const particlesCanvasStyle =
-  {
-    'position': 'fixed',
-    'top': '0px',
-    'left': '0px',
-    'width': '100%',
-    'height': '100%',
-    'backgroundColor': 'white'
+class Index extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      'displayParticles': window.innerWidth > 1000
+    }
   }
 
+  toggleParticles = (showParticles) => {
+    this.setState({
+      'displayParticles': showParticles
+    })
+  }
+
+  render() {
+    return(
+      <div style={{'height': '100%'}}>
+        {this.state.displayParticles &&
+          <Particles
+                params = {particlesConfig}
+                className = 'particlesCanvasStyle'
+            />
+        }
+        <PersonalWebsite toggleParticles={this.toggleParticles.bind(this)} />
+      </div>
+    )
+  }
+}
+
 ReactDOM.render(
-  <div style={{'height': '100%'}}>
-    <Particles
-          params = {particlesConfig}
-          style = {particlesCanvasStyle}
-        />
-      <PersonalWebsite />
-  </div>
-  , document.getElementById('root'));
+  <Index/>, document.getElementById('root'));
 registerServiceWorker();
