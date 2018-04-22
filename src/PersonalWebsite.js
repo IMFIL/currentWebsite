@@ -109,7 +109,9 @@ class MenuDrawer extends Component {
   }
 
   onNavBarElementClick = (location) => {
-    this.props.closerMenu()
+    if(this.props.closerMenu !== undefined) {
+      this.props.closerMenu()
+    }
     this.setState({'location':location})
     history.replace(location);
   }
