@@ -194,16 +194,8 @@
     font-size: 15px !important;
   }
 
-  .interestsContainer {
-    padding-bottom: 25px;
-  }
-
   .interestsChips {
     font-size: 7px !important
-  }
-
-  .iconHolder {
-    padding-top: 27px;
   }
 
   .githubIcon {
