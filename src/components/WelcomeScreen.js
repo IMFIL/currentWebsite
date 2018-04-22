@@ -40,7 +40,7 @@ class WelcomeScreen extends Component {
           Things that interest me include but are not limited to:
         </Typography>
 
-        <div style={{'display': 'flex', 'flexDirection': 'row', 'maxWidth': '500px', 'flexWrap': 'wrap', 'padding': '10 10px 10px 0'}}>
+        <div className='interestsContainer'>
           {interests.map((i, index) => {
             return(
               <Chip

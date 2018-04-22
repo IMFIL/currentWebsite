@@ -93,7 +93,6 @@ class PersonalWebsite extends Component {
           <Router history={history}>
             <div className='componentRenderingArea'>
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
-
             </div>
           </Router>
         </div>

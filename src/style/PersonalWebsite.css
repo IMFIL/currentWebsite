@@ -107,6 +107,14 @@
   align-items: center;
 }
 
+.interestsContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 500px;
+  flex-wrap: wrap;
+  padding: 10px 10px 10px 0
+}
+
 .iconHolder {
   display: flex;
   flex-direction: row;
@@ -190,14 +198,10 @@
     font-size: 7px !important
   }
 
-  .iconHolder {
-    padding-top: 25px;
-  }
-
   .githubIcon {
-    font-size: 1.6em !important;
+    font-size: 1.3em !important;
   }
   .linkedInIcon {
-    font-size: 1.6em !important;
+    font-size: 1.3em !important;
   }
 }
