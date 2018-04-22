@@ -107,6 +107,13 @@
   align-items: center;
 }
 
+.iconHolder {
+  display: flex;
+  flex-direction: row;
+  max-width: 100px;
+  padding-top: 15px;
+}
+
 .githubIcon {
   cursor: pointer;
   color: #DDDDDD;
@@ -125,7 +132,7 @@
   color: #127BB4;
 }
 
-@media screen and (max-width: 1001px) and (min-width: 601px) {
+@media screen and (max-width: 1000px) and (min-width: 601px) {
 
   .componentRenderingAreaContainer {
     width: 100%;
@@ -181,6 +188,10 @@
 
   .interestsChips {
     font-size: 7px !important
+  }
+
+  .iconHolder {
+    padding-top: 25px;
   }
 
   .githubIcon {

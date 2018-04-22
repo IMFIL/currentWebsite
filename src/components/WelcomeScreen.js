@@ -35,7 +35,7 @@ class WelcomeScreen extends Component {
         </Typography>
 
         <Typography className='centerTextDescription'>
-          Hi, Im Filip. I am currently studying software engineering at the university of Ottawa.
+          Hi, Im Filip, I am currently in my 4th year of software engineering at the university of Ottawa.
           I enjoy spending time writing cool software, learning new technologies and finding the next best place to eat.
           Things that interest me include but are not limited to:
         </Typography>
@@ -53,7 +53,7 @@ class WelcomeScreen extends Component {
           })}
         </div>
 
-        <div style={{'display': 'flex', 'flexDirection': 'row', 'maxWidth': '100px', 'paddingTop': '15px'}}>
+        <div className='iconHolder'>
           <a target="_blank" href='https://github.com/IMFIL' style={{'textDecoration': 'none'}}>
             <FontAwesome
               className='githubIcon'
