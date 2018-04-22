@@ -161,7 +161,7 @@
 @media screen and (max-width: 450px) {
 
   .welcomeScreen {
-    padding-left: 30px;
+    padding-left: 15px;
     padding-top: 40px;
     height: calc(100%)
   }
@@ -181,5 +181,12 @@
 
   .interestsChips {
     font-size: 7px !important
+  }
+
+  .githubIcon {
+    font-size: 1.6em !important;
+  }
+  .linkedInIcon {
+    font-size: 1.6em !important;
   }
 }

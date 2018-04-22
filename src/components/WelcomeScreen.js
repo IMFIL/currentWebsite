@@ -31,7 +31,7 @@ class WelcomeScreen extends Component {
         </Typography>
 
         <Typography className='centerText'>
-          & Life long student.
+          Life long student.
         </Typography>
 
         <Typography className='centerTextDescription'>
