@@ -61,6 +61,8 @@ class PersonalWebsite extends Component {
     })
   }
 
+  //<Route exact path='/work' render={(props) => <WorkScreen {...props}/>}/>
+
   render() {
     return (
       <div className="personalWebsite" >
