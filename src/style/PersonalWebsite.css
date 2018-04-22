@@ -135,8 +135,9 @@
 @media screen and (max-width: 601px) and (min-width: 450px) {
 
   .welcomeScreen {
-    padding-left: 20px;
-    height: calc(100% + 60px)
+    padding-left: 40px;
+    padding-top: 40px;
+    height: calc(100%)
   }
 
   .componentRenderingAreaContainer {
@@ -160,8 +161,9 @@
 @media screen and (max-width: 450px) {
 
   .welcomeScreen {
-    padding-left: 10px;
-    height: calc(100% + 60px)
+    padding-left: 40px;
+    padding-top: 40px;
+    height: calc(100%)
   }
 
   .componentRenderingAreaContainer {
