@@ -7,6 +7,7 @@ import Route from 'react-router-dom/Route';
 import IconButton from 'material-ui/IconButton';
 import WelcomeScreen from './components/WelcomeScreen'
 import WorkScreen from './components/WorkScreen'
+import ProjectsScreen from './components/ProjectsScreen'
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
@@ -95,6 +96,7 @@ class PersonalWebsite extends Component {
           <Router history={history}>
             <div className='componentRenderingArea'>
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
+              <Route exact path='/projects' render={(props) => <ProjectsScreen{...props}/>}/>
             </div>
           </Router>
         </div>
@@ -162,9 +164,9 @@ class NavBar extends Component {
   }
   render () {
     return (
-      <div style={{'position': 'relative', 'zIndex': '1'}}>
+      <div style={{'width':'0', 'height': '0', 'position': 'relative', 'zIndex': '1'}}>
       <IconButton
-          style={{'marginLeft': '5px', 'marginTop': '5px'}}
+          style={{'position': 'fixed', 'marginLeft': '5px', 'marginTop': '5px'}}
           onClick={() => {this.props.openDrawer()}}
         >
           <MenuIcon style={{'fontSize': '25px', 'color': '#262626'}}/>

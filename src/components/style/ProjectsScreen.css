@@ -1,0 +1,84 @@
+@font-face {
+    font-family: sanFran;
+    src: url('../../style/fonts/SanFranciscoDisplay-Ultralight.otf');
+}
+
+.projectsContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.petTraceContainer {
+  overflow-x: hidden;
+  background-color: #5BE6C7;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.petTraceImage {
+  width: 75%;
+}
+
+.pegasusContainer {
+  overflow-x: hidden;
+  background-color: #0C5DA7;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pegasusImage {
+  width: 65%;
+}
+
+.flavorHubContainer {
+  overflow-x: hidden;
+  background-color: #F88074;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flavorHubImage {
+  width: 75%;
+}
+
+.busNowContainer {
+  overflow-x: hidden;
+  background-color: #E9BBD8;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.busNowImage {
+  width: 45%;
+}
+
+.cookRContainer {
+  overflow-x: hidden;
+  background-color: #4A4A4A;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookRImage {
+  width: 65%;
+}
