@@ -155,6 +155,7 @@
 @media screen and (max-width: 601px) and (min-width: 450px) {
 
   .welcomeScreen {
+    overflow-y: hidden;
     padding-top: 25px;
     padding-left: 40px;
     height: calc(100%)
