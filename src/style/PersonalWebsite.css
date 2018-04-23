@@ -42,7 +42,7 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 30% !important;
+  width: 20% !important;
   height: 100%;
 }
 
@@ -52,8 +52,8 @@
 
 .componentRenderingAreaContainer {
    height: 100%;
-   width: 70%;
-   margin-left: 30%;
+   width: 80%;
+   margin-left: 20%;
 }
 
 .welcomeScreen {
@@ -81,13 +81,13 @@
 }
 
 .menuIcons {
-  color: #100fed !important;
+  color: white !important;
   margin-right: 0 !important;
 }
 
 .drawerStyle {
   position: fixed;
-  width: 30%;
+  width: 20%;
   height:100%;
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@
 @media screen and (max-width: 601px) and (min-width: 450px) {
 
   .welcomeScreen {
-    padding-top: 40px;
+    padding-top: 25px;
     padding-left: 40px;
     height: calc(100%)
   }
@@ -182,7 +182,7 @@
 @media screen and (max-width: 450px) {
 
   .welcomeScreen {
-    padding-top: 40px;
+    padding-top: 25px;
     padding-left: 30px;
     height: calc(100%)
   }
