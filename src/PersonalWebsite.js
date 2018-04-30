@@ -33,7 +33,7 @@ class PersonalWebsite extends Component {
   }
 
   componentWillMount() {
-    this.updateDimensions
+    this.updateDimensions()
 }
   componentDidMount() {
     document.title = 'Filip Slatinac'
@@ -44,11 +44,11 @@ class PersonalWebsite extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.menuOpen == !this.state.menuOpen) {
+    if (nextState.menuOpen === !this.state.menuOpen) {
       return true
     }
 
-    else if(nextState.width <= 1000 && this.state.width > 1000 || nextState.width > 1000 && this.state.width <= 1000) {
+    else if((nextState.width <= 1000 && this.state.width > 1000) || (nextState.width > 1000 && this.state.width <= 1000)) {
       this.props.toggleParticles(nextState.width > 1000)
       return true
     }
@@ -97,6 +97,7 @@ class PersonalWebsite extends Component {
             <div className='componentRenderingArea'>
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
               <Route exact path='/projects' render={(props) => <ProjectsScreen{...props}/>}/>
+              <Route exact path='/work' render={(props) => <WorkScreen{...props}/>}/>
             </div>
           </Router>
         </div>

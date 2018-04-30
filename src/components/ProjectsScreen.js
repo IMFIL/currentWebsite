@@ -1,30 +1,91 @@
 import React, { Component } from 'react';
 import './style/ProjectsScreen.css';
-import Typography from 'material-ui/Typography';
-import Chip from 'material-ui/Chip';
+import FontAwesome from 'react-fontawesome'
 
-const tech = ['Meteor', 'HTML', 'CSS']
+
+const projects = [
+  {
+    'name': 'FlavorHub',
+    'image': require('../images/flavorHub.png'),
+    'width': '70%',
+    'color': '#F88074',
+    'description': 'Searching and rating tool for restaurants',
+    'tech': ['React', '|', 'Flask'],
+    'link': 'https://github.com/anthonyanader/flavorHubFrontEnd'
+
+  },
+  {
+    'name': 'PetTrace',
+    'image': require('../images/petTrace.png'),
+    'width': '70%',
+    'color': '#5BE6C7',
+    'description': 'Web application for lost and found pets',
+    'tech': ['Meteor'],
+    'link': 'https://github.com/IMFIL/petTrace'
+
+  },
+  {
+    'name': 'Pegasus',
+    'image': require('../images/pegasus.png'),
+    'width': '55%',
+    'color': '#0C5DA7',
+    'description': 'Interview preparation application which offers learning ressources, question and answers tailored for the searched company',
+    'tech': ['Android', '|',  'Flask'],
+    'link': 'https://github.com/IMFIL/Pegasus'
+  },
+  {
+    'name': 'BusNow',
+    'image': require('../images/busNow.png'),
+    'width': '37%',
+    'color': '#E9BBD8',
+    'description': 'Geolocation based pebble application which lets users know when the next nearest bus is comming',
+    'tech': ['Vanilla Javascript'],
+    'link': 'https://github.com/IMFIL/BusNow'
+  }
+]
 
 class ProjectsScreen extends Component {
+
 
   render(){
     return(
       <div className='projectsContainer'>
-        <div className='flavorHubContainer'>
-          <img className='flavorHubImage' src={require('../images/flavorHub.png')}/>
-        </div>
-        <div className='cookRContainer'>
-          <img className='cookRImage' src={require('../images/cookR.png')}/>
-        </div>
-        <div className='petTraceContainer'>
-          <img className='petTraceImage' src={require('../images/petTrace.png')}/>
-        </div>
-        <div className='pegasusContainer'>
-          <img className='pegasusImage' src={require('../images/pegasus.png')}/>
-        </div>
-        <div className='busNowContainer'>
-          <img className='busNowImage' src={require('../images/busNow.png')}/>
-        </div>
+        {projects.map((i, index) => {
+          return (
+            <div style={{'height': '100%', 'overflow': 'hidden', 'backgroundColor': projects[index].color}} key={projects[index].name}>
+              <p className='projectDescription'>
+                {projects[index].description}
+              </p>
+              <div className='projectContainer'>
+                  <img className='imageClass' style={{'width': projects[index].width}} src={projects[index].image}/>
+              </div>
+              <div className='projectTechContainer'>
+                {projects[index].tech.map((i, techIndex) => {
+                  return (
+                    <p className='techName' key={projects[index].name+' '+projects[index].tech[techIndex]}>
+                      {projects[index].tech[techIndex]}
+                    </p>
+                  )
+                })
+
+                }
+              </div>
+              <div className='projectNameContainer'>
+                  <p className='projectName'>
+                    {projects[index].name}
+                  </p>
+                  <a rel="noreferrer" className='githubProjectLink' target="_blank" href={projects[index].link}>
+                    <FontAwesome
+                      name='github'
+                      className='projectGitHubIcon'
+                      style={{'fontSize': '22.5px', 'color': 'white'}}
+                    />
+                  </a>
+              </div>
+            </div>
+          )
+        })
+        }
       </div>
     )
   }

@@ -3,83 +3,83 @@
     src: url('../../style/fonts/SanFranciscoDisplay-Ultralight.otf');
 }
 
+@font-face {
+    font-family: moon;
+    src: url('../../style/fonts/Moon_Light.otf');
+}
+
+@font-face {
+    font-family: museo;
+    src: url('../../style/fonts/MuseoSans_500.otf');
+}
+
 .projectsContainer {
   height: 100%;
   width: 100%;
 }
 
-.petTraceContainer {
+.projectContainer {
   overflow-x: hidden;
-  background-color: #5BE6C7;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 115px);
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.petTraceImage {
-  width: 70%;
-}
-
-.pegasusContainer {
-  overflow-x: hidden;
-  background-color: #0C5DA7;
-  width: 100%;
-  height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.pegasusImage {
-  width: 55%;
+.imageClass {
+  position: relative;
 }
 
-.flavorHubContainer {
-  overflow-x: hidden;
-  background-color: #F88074;
-  width: 100%;
-  height: 100%;
+.projectTechContainer {
+  height: 25px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+  margin-left: 15px;
 }
 
-.flavorHubImage {
-  width: 70%;
+.techName {
+  font-family: sanFran;
+  font-size: 15px;
+  margin: 0 10px 0 0;
+  color: white
 }
 
-.busNowContainer {
-  overflow-x: hidden;
-  background-color: #E9BBD8;
-  width: 100%;
-  height: 100%;
+.projectNameContainer {
+  height: 35px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.busNowImage {
-  width: 37%;
-}
-
-.cookRContainer {
-  overflow-x: hidden;
-  background-color: #4A4A4A;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.cookRImage {
-  width: 55%;
+.githubProjectLink {
+  text-decoration: none;
+  margin-right: 15px;
+  flex: 0;
+}
+
+.projectGitHubIcon {
+  transition: all 300ms ease;
+}
+
+.projectGitHubIcon:hover {
+  color: #171515 !important;
+}
+
+.projectName {
+  font-family: museo;
+  color: white;
+  margin: 0 0 0 15px;
+  flex: 1;
+}
+
+.projectDescription {
+  height: 35px;
+  margin-top: 0;
+  padding: 10px 0 0 10px;
+  font-family: sanFran;
+  font-size: 16px;
+  font-weight: 1000;
+  color: white;
+  max-width: 300px;
 }
