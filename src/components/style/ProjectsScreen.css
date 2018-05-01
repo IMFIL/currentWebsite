@@ -47,6 +47,7 @@
 }
 
 .projectNameContainer {
+  margin: 10px 0 0 0;
   height: 35px;
   display: flex;
   width: 100%;
@@ -74,12 +75,20 @@
 }
 
 .projectDescription {
+  position: relative;
   height: 35px;
-  margin-top: 0;
-  padding: 10px 0 0 10px;
+  padding: 0 0 0 10px;
   font-family: sanFran;
   font-size: 16px;
   font-weight: 1000;
   color: white;
   max-width: 300px;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+  /* .projectsContainer {
+      padding-top: 55px;
+  } */
 }

@@ -71,6 +71,15 @@ class WelcomeScreen extends Component {
               style={{'padding': '15px'}}
             />
           </a>
+
+          <a rel="noreferrer" target="_blank" href={require('../images/FilipSlatinac.pdf')} style={{'textDecoration': 'none'}}>
+            <FontAwesome
+              className='resumeIcon'
+              name='file-text'
+              size='2x'
+              style={{'padding': '15px'}}
+            />
+          </a>
         </div>
 
       </div>

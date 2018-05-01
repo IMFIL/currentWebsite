@@ -53,23 +53,6 @@ class ProjectsScreen extends Component {
         {projects.map((i, index) => {
           return (
             <div style={{'height': '100%', 'overflow': 'hidden', 'backgroundColor': projects[index].color}} key={projects[index].name}>
-              <p className='projectDescription'>
-                {projects[index].description}
-              </p>
-              <div className='projectContainer'>
-                  <img className='imageClass' style={{'width': projects[index].width}} src={projects[index].image}/>
-              </div>
-              <div className='projectTechContainer'>
-                {projects[index].tech.map((i, techIndex) => {
-                  return (
-                    <p className='techName' key={projects[index].name+' '+projects[index].tech[techIndex]}>
-                      {projects[index].tech[techIndex]}
-                    </p>
-                  )
-                })
-
-                }
-              </div>
               <div className='projectNameContainer'>
                   <p className='projectName'>
                     {projects[index].name}
@@ -82,6 +65,23 @@ class ProjectsScreen extends Component {
                     />
                   </a>
               </div>
+              <div className='projectTechContainer'>
+                {projects[index].tech.map((i, techIndex) => {
+                  return (
+                    <p className='techName' key={projects[index].name+' '+projects[index].tech[techIndex]}>
+                      {projects[index].tech[techIndex]}
+                    </p>
+                  )
+                })
+
+                }
+              </div>
+              <div className='projectContainer'>
+                  <img className='imageClass' style={{'width': projects[index].width}} src={projects[index].image}/>
+              </div>
+              <p className='projectDescription' style={{'bottom': projects[index].name === 'BusNow' || projects[index].name === 'Pegasus' ? '5%' : '1%'}}>
+                {projects[index].description}
+              </p>
             </div>
           )
         })

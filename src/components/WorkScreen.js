@@ -85,6 +85,25 @@ class WorkScreen extends Component {
 
     return (
       <div className='workArea'>
+        <Grid container className='imageGridItem' spacing={24}>
+        {workItems.map((i, index) => {
+          return (
+            <Grid item xs={12} sm={12} style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}>
+              <svg className='svgImage'
+              id={workItems[index]['id']}
+              viewBox={workItems[index]['viewBox']}
+              width={workItems[index]['widthSvg']}
+              height={workItems[index]['heightSvg']}>
+
+                <image
+                width={workItems[index]['width']}
+                height={workItems[index]['height']}
+                xlinkHref={workItems[index]['image']}/>
+              </svg>
+            </Grid>
+          )
+        })}
+        </Grid>
       </div>
     )
   }

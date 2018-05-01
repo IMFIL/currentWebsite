@@ -129,6 +129,7 @@
 .githubIcon {
   cursor: pointer;
   color: #DDDDDD;
+  transition: all 300ms ease;
 }
 
 .githubIcon:hover {
@@ -138,10 +139,21 @@
 .linkedInIcon {
   color: #DDDDDD;
   cursor: pointer;
+  transition: all 300ms ease;
 }
 
 .linkedInIcon:hover {
   color: #127BB4;
+}
+
+.resumeIcon {
+  color: #DDDDDD;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.resumeIcon:hover {
+  color: #121212;
 }
 
 @media screen and (max-width: 1000px) and (min-width: 601px) {
