@@ -74,7 +74,7 @@
   flex: 1;
 }
 
-.projectDescription {
+.bottomPaddingLongText {
   position: relative;
   height: 35px;
   padding: 0 0 0 10px;
@@ -83,12 +83,24 @@
   font-weight: 1000;
   color: white;
   max-width: 300px;
+  bottom: 5%;
+}
+
+.bottomPaddingShortText {
+  position: relative;
+  height: 35px;
+  padding: 0 0 0 10px;
+  font-family: sanFran;
+  font-size: 16px;
+  font-weight: 1000;
+  color: white;
+  max-width: 300px;
+  bottom: 1%;
 }
 
 
-@media screen and (max-width: 1000px) {
-
-  /* .projectsContainer {
-      padding-top: 55px;
-  } */
+@media screen and (max-width: 600px) {
+  .bottomPaddingLongText {
+    bottom: 10%;
+  }
 }

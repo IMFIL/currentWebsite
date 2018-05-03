@@ -79,7 +79,7 @@ class ProjectsScreen extends Component {
               <div className='projectContainer'>
                   <img className='imageClass' style={{'width': projects[index].width}} src={projects[index].image}/>
               </div>
-              <p className='projectDescription' style={{'bottom': projects[index].name === 'BusNow' || projects[index].name === 'Pegasus' ? '5%' : '1%'}}>
+              <p className={projects[index].name === 'BusNow' || projects[index].name === 'Pegasus' ? 'bottomPaddingLongText' : 'bottomPaddingShortText'}>
                 {projects[index].description}
               </p>
             </div>
