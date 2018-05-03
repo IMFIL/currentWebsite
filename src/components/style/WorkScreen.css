@@ -8,11 +8,75 @@
     src: url('../../style/fonts/SanFranciscoDisplay-Ultralight.otf');
 }
 
+@font-face {
+    font-family: museo;
+    src: url('../../style/fonts/MuseoSans_500.otf');
+}
+
+.workContainer {
+  width: 100% !important;
+  height: 100%;
+}
+
+.rowContainer {
+  width: 100% !important;
+  margin:0 !important;
+}
+
 .workArea {
   background-color: #F4F3F3;
   height: 100%;
+  overflow: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.projectCard {
+  max-width: 55% !important;
+}
+
+.imageRowSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#uofo {
+  background-color: #44AF69 !important;
+}
+
+#nokia {
+  background-color: #F8333C !important;
+}
+
+#ciena {
+  background-color: #FCAB10 !important;
+}
+
+#ibm {
+  background-color: #2B9EB3 !important;
+}
+
+.unexpandedTextContainer {
+  padding-bottom: 0 !important;
+}
+
+.workName {
+  font-size: 20px !important;
+}
+
+.workRole {
+  font-size: 15px !important;
+  font-family: museo !important;
+}
+
+.workDescription {
 }

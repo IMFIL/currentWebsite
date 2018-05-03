@@ -2,70 +2,72 @@ import React, { Component } from 'react';
 import './style/WorkScreen.css';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LensIcon from '@material-ui/icons/Lens';
-import PanoramaFishEyeIcon from '@material-ui/icons/PanoramaFishEye';
 import Tooltip from 'material-ui/Tooltip';
-
-//Add skill bar below image and description. Desktop -> dv that holds the skills. Mobile -> small containers holding work icon and skills with button to expand, when clicked
-//Description slides from below
+import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from 'material-ui/transitions/Collapse';
+import IconButton from 'material-ui/IconButton';
 
 const workItems = [
   {
     'id': 'uofo',
     'name': 'University of Ottawa',
+    'role': 'Web developer',
+    'location': 'Ottawa, ON',
     'description':
       'Worked in a team of 5 to maintain, improve and test a web application which enabled students to connect with academic adivsors.' +
       ' I also Implemented a statistical end point which let users see how much a certain service was being utilized by students.' +
       ' ',
     'image': require('../images/University_of_Ottawa_Logo.svg'),
-    'viewBox': '0 0 90 150',
-    'heightSvg': '110',
-    'widthSvg': '190',
-    'height': '132',
-    'width': '150'
+    'heightSvg': '35%',
+    'widthSvg': '35%',
+    'width': '100%',
+    'height': '100%'
   },
   {
     'id': 'nokia',
     'name': 'Nokia',
+    'role': 'Software Designer',
+    'location': 'Ottawa, ON',
     'description':
       'Worked in a team of 4 developers on the abstraction of networking alarms. This enabled devlelopers to dynamically create alarms based on software errors.' +
       ' Prior to this change, developers were manually creating an alarm for every possible software error.' +
       ' At the end of the term I reveived the maximal standing for a coop term.',
     'image': require('../images/Nokia_logo.svg'),
-    'viewBox': '0 0 350 80',
-    'heightSvg': '100',
-    'widthSvg': '250',
-    'height': '140',
-    'width': '250'
+    'heightSvg': '20%',
+    'widthSvg': '42%',
+    'width': '100%',
+    'height': '100%'
   },
   {
     'id': 'ciena',
     'name': 'Ciena',
+    'role': 'Front-end software developer',
+    'location': 'Ottawa, ON',
     'description':
-      'Worked with a team of 7 engineers on the improvement and maintainance of Blue Planet\'s UI, the website which customers such as Telus'+
+      'Worked with a team of 7 on the improvement and maintainance of Blue Planet\'s UI, the web application which customers such as Telus'+
       ' and Vodafone use to maintain their networks. In addition to maintance, I was tasked to revamp 2 graphical component which significantly aided the end users.' +
       ' At ther end of the term, I was nomitated as the coop'+
       ' student of the year as well as received the maximal standing for a coop term.',
     'image': require('../images/Ciena_logo.svg'),
-    'viewBox': '0 0 1100 300',
-    'heightSvg': '100',
-    'widthSvg': '200',
-    'height': '400',
-    'width': '800'
+    'heightSvg': '24%',
+    'widthSvg': '37%',
+    'width': '100%',
+    'height': '100%'
   },
   {
     'id': 'ibm',
     'name': 'IBM',
+    'role': 'Extreme Blue technical intern',
+    'location': 'Ottawa, ON',
     'description':
       'Will be participating in IBM\'s Extreme Blue program as a technical intern. More information to come.',
     'image': require('../images/IBM_logo.svg'),
-    'viewBox': '0 0 1100 300',
-    'heightSvg': '200',
-    'widthSvg': '200',
-    'height': '300',
-    'width': '650'
+    'heightSvg': '15%',
+    'widthSvg': '30%',
+    'width': '100%',
+    'height': '100%'
+
   }
 ]
 
@@ -75,32 +77,71 @@ class WorkScreen extends Component {
     super(props)
 
     this.state = {
-      'currentWorkObject': 0
+      'expansionMonitor':
+        {
+          'uofo': false,
+          'nokia': false,
+          'ciena': false,
+          'ibm': false
+        }
     }
+  }
+
+  handleExpandClick = (id) => {
+    let currentState = this.state.expansionMonitor
+    currentState[id] = !currentState[id]
+    this.setState({currentState})
   }
 
 
 
   render() {
-
     return (
       <div className='workArea'>
-        <Grid container className='imageGridItem' spacing={24}>
+        <Grid container className='workContainer' spacing={24}>
         {workItems.map((i, index) => {
           return (
-            <Grid item xs={12} sm={12} style={{'display': 'flex', 'justifyContent': 'center', 'alignItems': 'center'}}>
-              <svg className='svgImage'
-              id={workItems[index]['id']}
-              viewBox={workItems[index]['viewBox']}
-              width={workItems[index]['widthSvg']}
-              height={workItems[index]['heightSvg']}>
+            <Grid item xs={12} sm={6} className='imageRowSection' key={index} id={workItems[index].id}>
+              <Card className='projectCard'>
+                <CardContent className='imageContainer' id={workItems[index].id}>
+                  <svg
+                  id={workItems[index]['id']}
+                  width={workItems[index]['widthSvg']}
+                  height={workItems[index]['heightSvg']}>
 
-                <image
-                width={workItems[index]['width']}
-                height={workItems[index]['height']}
-                xlinkHref={workItems[index]['image']}/>
-              </svg>
-            </Grid>
+                    <image
+                    width={workItems[index]['width']}
+                    height={workItems[index]['height']}
+                    xlinkHref={workItems[index]['image']}/>
+                  </svg>
+                </CardContent>
+                <CardContent className='unexpandedTextContainer'>
+                  <Typography className='workName' component="p">
+                    {workItems[index]['name']}
+                  </Typography>
+                  <Typography className='workRole' component="p">
+                    {workItems[index]['role']}
+                  </Typography>
+                </CardContent>
+                <CardActions className='' disableActionSpacing>
+                  <IconButton
+                    style = {{'transform': this.state.expansionMonitor[workItems[index].id] ? 'rotate(180deg)' : 'rotate(0deg)'}}
+                    onClick={() => this.handleExpandClick(workItems[index].id)}
+                    aria-expanded={this.state.expansionMonitor[workItems[index].id]}
+                    aria-label="Show more"
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                </CardActions>
+                <Collapse in={this.state.expansionMonitor[workItems[index].id]} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    <Typography className='workDescription' paragraph>
+                      {workItems[index]['description']}
+                    </Typography>
+                  </CardContent>
+                </Collapse>
+              </Card>
+          </Grid>
           )
         })}
         </Grid>
