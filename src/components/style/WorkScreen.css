@@ -78,5 +78,13 @@
   font-family: museo !important;
 }
 
-.workDescription {
+.workDuration {
+  font-size: 15px !important;
+  font-family: museo !important;
+}
+
+@media screen and (max-width: 500px) {
+  .projectCard {
+    max-width: 65% !important;
+  }
 }

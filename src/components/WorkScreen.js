@@ -13,7 +13,7 @@ const workItems = [
     'id': 'uofo',
     'name': 'University of Ottawa',
     'role': 'Web developer',
-    'location': 'Ottawa, ON',
+    'duration': 'Summer 2016 - Fall 2016',
     'description':
       'Worked in a team of 5 to maintain, improve and test a web application which enabled students to connect with academic adivsors.' +
       ' I also Implemented a statistical end point which let users see how much a certain service was being utilized by students.' +
@@ -28,7 +28,7 @@ const workItems = [
     'id': 'nokia',
     'name': 'Nokia',
     'role': 'Software Designer',
-    'location': 'Ottawa, ON',
+    'duration': 'Winter 2017 - Summer 2017',
     'description':
       'Worked in a team of 4 developers on the abstraction of networking alarms. This enabled devlelopers to dynamically create alarms based on software errors.' +
       ' Prior to this change, developers were manually creating an alarm for every possible software error.' +
@@ -43,7 +43,7 @@ const workItems = [
     'id': 'ciena',
     'name': 'Ciena',
     'role': 'Front-end software developer',
-    'location': 'Ottawa, ON',
+    'duration': 'Fall 2017 - Winter 2018',
     'description':
       'Worked with a team of 7 on the improvement and maintainance of Blue Planet\'s UI, the web application which customers such as Telus'+
       ' and Vodafone use to maintain their networks. In addition to maintance, I was tasked to revamp 2 graphical component which significantly aided the end users.' +
@@ -59,7 +59,7 @@ const workItems = [
     'id': 'ibm',
     'name': 'IBM',
     'role': 'Extreme Blue technical intern',
-    'location': 'Ottawa, ON',
+    'duration': 'Summer 2018 - Fall 2018',
     'description':
       'Will be participating in IBM\'s Extreme Blue program as a technical intern. More information to come.',
     'image': require('../images/IBM_logo.svg'),
@@ -121,6 +121,9 @@ class WorkScreen extends Component {
                   </Typography>
                   <Typography className='workRole' component="p">
                     {workItems[index]['role']}
+                  </Typography>
+                  <Typography className='workDuration' component="p">
+                    {workItems[index]['duration']}
                   </Typography>
                 </CardContent>
                 <CardActions className='' disableActionSpacing>
