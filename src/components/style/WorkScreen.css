@@ -65,6 +65,10 @@
   background-color: #5EACF7 !important;
 }
 
+.expandButton {
+  padding: 0 !important;
+}
+
 .unexpandedTextContainer {
   padding-bottom: 0 !important;
 }
@@ -83,8 +87,12 @@
   font-family: museo !important;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .projectCard {
     max-width: 65% !important;
+  }
+
+  .imageRowSection {
+    padding: 50px 0 50px 0 !important;
   }
 }

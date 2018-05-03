@@ -83,8 +83,38 @@ class WorkScreen extends Component {
           'nokia': false,
           'ciena': false,
           'ibm': false
-        }
+        },
+      'width': window.innerWidth
     }
+  }
+
+  updateDimensions = () => {
+    this.setState({'width': window.innerWidth})
+  }
+
+  componentWillMount() {
+    this.updateDimensions()
+}
+  componentDidMount() {
+      window.addEventListener("resize", this.updateDimensions);
+  }
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateDimensions);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+
+    for(var key in this.state.expansionMonitor) {
+      if(this.state.expansionMonitor[key] === nextState.expansionMonitor[key]) {
+        return true
+      }
+    }
+
+    if((nextState.width <= 600 && this.state.width > 600) || (nextState.width > 600 && this.state.width <= 600)) {
+      return true
+    }
+
+    return false
   }
 
   handleExpandClick = (id) => {
@@ -92,8 +122,6 @@ class WorkScreen extends Component {
     currentState[id] = !currentState[id]
     this.setState({currentState})
   }
-
-
 
   render() {
     return (
@@ -107,36 +135,67 @@ class WorkScreen extends Component {
                   <svg
                   id={workItems[index]['id']}
                   width={workItems[index]['widthSvg']}
-                  height={workItems[index]['heightSvg']}>
+                  height={workItems[index]['heightSvg']}
+                  style={{'position': 'relative', 'left': this.state.width >= 600 ? '8%' : '0'}}>
 
                     <image
                     width={workItems[index]['width']}
                     height={workItems[index]['height']}
                     xlinkHref={workItems[index]['image']}/>
                   </svg>
+                  { this.state.width >= 600 &&
+                    <CardActions style={{'position': 'relative', 'left': this.state.width >= 600 ? '20%' : '0'}} disableActionSpacing>
+                      <IconButton
+                        style = {{'transform': this.state.expansionMonitor[workItems[index].id] ? 'rotate(180deg)' : 'rotate(0deg)'}}
+                        onClick={() => this.handleExpandClick(workItems[index].id)}
+                        aria-expanded={this.state.expansionMonitor[workItems[index].id]}
+                        aria-label="Show more"
+                      >
+                        <ExpandMoreIcon style={{'color': 'white'}} />
+                      </IconButton>
+                    </CardActions>
+                  }
                 </CardContent>
-                <CardContent className='unexpandedTextContainer'>
-                  <Typography className='workName' component="p">
-                    {workItems[index]['name']}
-                  </Typography>
-                  <Typography className='workRole' component="p">
-                    {workItems[index]['role']}
-                  </Typography>
-                  <Typography className='workDuration' component="p">
-                    {workItems[index]['duration']}
-                  </Typography>
-                </CardContent>
-                <CardActions className='' disableActionSpacing>
-                  <IconButton
-                    style = {{'transform': this.state.expansionMonitor[workItems[index].id] ? 'rotate(180deg)' : 'rotate(0deg)'}}
-                    onClick={() => this.handleExpandClick(workItems[index].id)}
-                    aria-expanded={this.state.expansionMonitor[workItems[index].id]}
-                    aria-label="Show more"
-                  >
-                    <ExpandMoreIcon />
-                  </IconButton>
-                </CardActions>
+                { this.state.width < 600 &&
+                  <CardContent className='unexpandedTextContainer'>
+                    <Typography className='workName' component="p">
+                      {workItems[index]['name']}
+                    </Typography>
+                    <Typography className='workRole' component="p">
+                      {workItems[index]['role']}
+                    </Typography>
+                    <Typography className='workDuration' component="p">
+                      {workItems[index]['duration']}
+                    </Typography>
+                  </CardContent>
+                }
+
+                { this.state.width < 600 &&
+                  <CardActions className='expandButton' disableActionSpacing>
+                    <IconButton
+                      style = {{'transform': this.state.expansionMonitor[workItems[index].id] ? 'rotate(180deg)' : 'rotate(0deg)'}}
+                      onClick={() => this.handleExpandClick(workItems[index].id)}
+                      aria-expanded={this.state.expansionMonitor[workItems[index].id]}
+                      aria-label="Show more"
+                    >
+                      <ExpandMoreIcon style={{'position': 'relative', 'left': this.state.width > 600 ? '20%' : '0'}} />
+                    </IconButton>
+                  </CardActions>
+                }
                 <Collapse in={this.state.expansionMonitor[workItems[index].id]} timeout="auto" unmountOnExit>
+                  { this.state.width >= 600 &&
+                    <CardContent className='unexpandedTextContainer'>
+                      <Typography className='workName' component="p">
+                        {workItems[index]['name']}
+                      </Typography>
+                      <Typography className='workRole' component="p">
+                        {workItems[index]['role']}
+                      </Typography>
+                      <Typography className='workDuration' component="p">
+                        {workItems[index]['duration']}
+                      </Typography>
+                    </CardContent>
+                  }
                   <CardContent>
                     <Typography className='workDescription' paragraph>
                       {workItems[index]['description']}
