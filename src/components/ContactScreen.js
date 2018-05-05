@@ -52,7 +52,7 @@ class ContactScreen extends Component {
                 or if you just want to say hello.
               </Typography>
               <Typography className='lowerText' component="p">
-                If you are interested in my work, it is all posted on Github and if wish to connect with me,
+                If you are interested in my work, it is all posted on Github and if you wish to connect with me,
                 feel free to send me an invitation through LinkedIn.
               </Typography>
             </div>

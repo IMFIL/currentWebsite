@@ -110,8 +110,9 @@ class PersonalWebsite extends Component {
 
 class MenuDrawer extends Component {
   constructor(props) {
+    console.log(history)
     super(props)
-    this.state = {'location': ''}
+    this.state = {'location': history.location.pathname}
   }
 
   onNavBarElementClick = (location) => {
@@ -129,28 +130,28 @@ class MenuDrawer extends Component {
           <Tooltip id="tooltip-Home" title="Home" placement="left-start" className='toolTipText'>
             <ListItem button style={{marginBottom:'10px'}} aria-label='Home' onClick={() => this.onNavBarElementClick('/')}>
               <ListItemIcon>
-                <HomeIcon className='menuIcons'/>
+                <HomeIcon className='menuIcons' style={{'color':this.state.location==='/' ? '#100fed' : 'white'}}/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Work" title="Work" placement="left-start" className='toolTipText'>
             <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('/work')}>
               <ListItemIcon>
-                <WorkIcon className='menuIcons'/>
+                <WorkIcon className='menuIcons' style={{'color':this.state.location==='/work' ? '#100fed' : 'white'}}/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Projects" title="Projects" placement="left-start" className='toolTipText'>
             <ListItem button style={{marginBottom:'10px'}} aria-label='Projects' onClick={() => this.onNavBarElementClick('/projects')}>
               <ListItemIcon>
-                <ColorLensIcon className='menuIcons'/>
+                <ColorLensIcon className='menuIcons' style={{'color':this.state.location==='/projects' ? '#100fed' : 'white'}}/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
           <Tooltip id="tooltip-Contact" title="Contact" placement="left-start" className='toolTipText'>
             <ListItem button style={{marginBottom:'10px'}} aria-label='Contact' onClick={() => this.onNavBarElementClick('/contact')}>
               <ListItemIcon>
-                <ContactMailIcon className='menuIcons'/>
+                <ContactMailIcon className='menuIcons' style={{'color':this.state.location==='/contact' ? '#100fed' : 'white'}}/>
               </ListItemIcon>
             </ListItem>
           </Tooltip>
