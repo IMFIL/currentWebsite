@@ -58,7 +58,7 @@ class ContactScreen extends Component {
             </div>
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} className='formGrid'>
             <div className='formContainer'>
               <form action="https://formspree.io/filipslatinac@gmail.com" method="POST">
                 <div className='textFieldContainer'>

@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 .gridContainer {
@@ -63,12 +64,17 @@
 
 @media screen and (max-width: 1000px){
   .upperText {
-    margin: 7px 0 15px 0 !important;
+    margin: 80px 0 15px 0 !important;
     font-size: 18px !important;
   }
 
   .lowerText {
     margin: 15px 0 0 0 !important;
     font-size: 18px !important;
+  }
+
+  .formGrid {
+    padding-top: 0 !important;
+    padding-bottom: 70px!important;
   }
 }
