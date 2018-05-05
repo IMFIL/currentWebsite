@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import WelcomeScreen from './components/WelcomeScreen'
 import WorkScreen from './components/WorkScreen'
 import ProjectsScreen from './components/ProjectsScreen'
+import ContactScreen from './components/ContactScreen'
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
@@ -98,6 +99,7 @@ class PersonalWebsite extends Component {
               <Route exact path='/' render={(props) => <WelcomeScreen {...props}/>}/>
               <Route exact path='/projects' render={(props) => <ProjectsScreen{...props}/>}/>
               <Route exact path='/work' render={(props) => <WorkScreen{...props}/>}/>
+              <Route exact path='/contact' render={(props) => <ContactScreen{...props}/>}/>
             </div>
           </Router>
         </div>

@@ -41,6 +41,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 50;
 }
 
 .imageContainer {
@@ -89,7 +90,7 @@
 
 @media screen and (max-width: 600px) {
   .projectCard {
-    max-width: 65% !important;
+    max-width: 55% !important;
   }
 
   .imageRowSection {
