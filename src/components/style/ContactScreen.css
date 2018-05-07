@@ -62,7 +62,7 @@
   margin-bottom: 25px !important;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 600px){
   .upperText {
     margin: 60px 0 15px 0 !important;
     font-size: 18px !important;
