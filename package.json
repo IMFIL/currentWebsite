@@ -1,11 +1,12 @@
 {
   "name": "pw3",
   "version": "0.1.0",
-  "homepage": "https://github.com/IMFIL/personalWebsiteV3",
+  "homepage": "https://imfil.github.io/currentWebsite/",
   "private": true,
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.42",
     "axios": "^0.18.0",
+    "gh-pages": "^1.2.0",
     "js-base64": "^2.4.3",
     "material-ui": "^1.0.0-beta.42",
     "react": "^16.3.2",
@@ -23,6 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
